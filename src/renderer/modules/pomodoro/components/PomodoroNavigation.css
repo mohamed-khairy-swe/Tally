@@ -1,0 +1,37 @@
+.pomodoro-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  width: fit-content;
+  margin: 0 auto 12px;
+}
+
+.pomodoro-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pomodoro-nav__item:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.pomodoro-nav__item--active {
+  background-color: var(--bg-surface-elevated);
+  color: var(--gb-yellow);
+  box-shadow: var(--shadow-sm);
+  border-color: var(--border-subtle);
+}

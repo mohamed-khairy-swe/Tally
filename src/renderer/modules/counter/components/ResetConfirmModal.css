@@ -1,0 +1,83 @@
+.reset-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  animation: modalFadeIn 150ms ease-out;
+}
+
+.reset-modal {
+  width: min(420px, calc(100vw - 32px));
+  padding: 26px;
+  border-radius: 20px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-subtle);
+  animation: modalSlideIn 150ms ease-out;
+}
+
+.reset-modal__title {
+  margin: 0 0 12px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.reset-modal__message {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.reset-modal__message strong {
+  color: var(--text-primary);
+}
+
+.reset-modal__hint {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.reset-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.reset-modal__btn {
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 0;
+  transition: all 120ms ease;
+}
+
+.reset-modal__btn--cancel {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-default);
+}
+
+.reset-modal__btn--cancel:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.reset-modal__btn--confirm {
+  background: var(--gb-red);
+  color: var(--gb-bg0);
+}
+
+.reset-modal__btn--confirm:hover {
+  filter: brightness(1.1);
+}

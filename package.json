@@ -1,0 +1,53 @@
+{
+  "name": "tally",
+  "version": "1.0.0",
+  "description": "Minimalist Gruvbox Pomodoro, Habits, and Counters desktop app",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"pnpm dev:electron\" \"pnpm dev:renderer\" \"pnpm dev:launch\"",
+    "dev:electron": "tsc -p tsconfig.node.json --watch",
+    "dev:renderer": "vite --config vite.config.ts",
+    "dev:launch": "wait-on dist/main/main.js http://localhost:5173 && cross-env TALLY_DEV=true electron . --no-sandbox",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.node.json --noEmit",
+    "build:electron": "tsc -p tsconfig.node.json",
+    "build:renderer": "vite build --config vite.config.ts",
+    "build": "pnpm build:electron && pnpm build:renderer",
+    "test": "vitest run",
+    "package": "pnpm build && electron-builder",
+    "package:dir": "pnpm build && electron-builder --dir",
+    "package:linux": "pnpm build && electron-builder --linux",
+    "package:win": "pnpm build && electron-builder --win",
+    "package:mac": "pnpm build && electron-builder --mac",
+    "package:all": "pnpm build && electron-builder -mwl"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.9.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "dependencies": {
+    "@material/web": "^2.5.0",
+    "electron-store": "^11.0.2",
+    "lucide-react": "^1.52.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.5",
+    "cross-env": "^10.1.0",
+    "electron": "^44.5.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3",
+    "wait-on": "^9.5.1"
+  }
+}

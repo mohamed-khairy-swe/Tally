@@ -1,0 +1,369 @@
+/* ==========================================================================
+   GRUVBOX MEDIUM CONTRAST THEME SYSTEM (Dark / Light)
+   Material-inspired Surfaces, Typography, and Universal Components
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  /* Gruvbox Dark — Medium Contrast */
+  --gb-bg0-hard: #1d2021;
+  --gb-bg0: #282828;
+  --gb-bg0-soft: #32302f;
+  --gb-bg1: #3c3836;
+  --gb-bg2: #504945;
+  --gb-bg3: #665c54;
+  --gb-bg4: #7c6f64;
+
+  --gb-fg0: #fbf1c7;
+  --gb-fg1: #ebdbb2;
+  --gb-fg2: #d5c4a1;
+  --gb-fg3: #bdae93;
+  --gb-fg4: #a89984;
+
+  --gb-red: #fb4934;
+  --gb-green: #b8bb26;
+  --gb-yellow: #fabd2f;
+  --gb-blue: #83a598;
+  --gb-purple: #d3869b;
+  --gb-aqua: #8ec07c;
+  --gb-orange: #fe8019;
+  --gb-gray: #928374;
+
+  /* Semantic UI Tokens (Dark) */
+  --bg-app: var(--gb-bg0);
+  --bg-sidebar: var(--gb-bg0-soft);
+  --bg-surface: var(--gb-bg1);
+  --bg-surface-elevated: var(--gb-bg2);
+  --bg-surface-hover: rgba(235, 219, 178, 0.06);
+  --bg-surface-active: rgba(235, 219, 178, 0.12);
+
+  --border-subtle: var(--gb-bg2);
+  --border-default: var(--gb-bg3);
+  --border-focus: var(--gb-yellow);
+
+  --text-primary: var(--gb-fg0);
+  --text-secondary: var(--gb-fg2);
+  --text-muted: var(--gb-fg4);
+  --text-inverse: var(--gb-bg0);
+
+  /* Pomodoro Specific Colors */
+  --timer-focus: var(--gb-red);
+  --timer-short-break: var(--gb-green);
+  --timer-long-break: var(--gb-blue);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.55);
+
+  --color-scheme: dark;
+}
+
+[data-theme="light"] {
+  /* Gruvbox Light — Medium Contrast */
+  --gb-bg0-hard: #f9f5d7;
+  --gb-bg0: #fbf1c7;
+  --gb-bg0-soft: #f2e5bc;
+  --gb-bg1: #ebdbb2;
+  --gb-bg2: #d5c4a1;
+  --gb-bg3: #bdae93;
+  --gb-bg4: #a89984;
+
+  --gb-fg0: #282828;
+  --gb-fg1: #3c3836;
+  --gb-fg2: #504945;
+  --gb-fg3: #665c54;
+  --gb-fg4: #7c6f64;
+
+  --gb-red: #cc241d;
+  --gb-green: #79740e;
+  --gb-yellow: #b57614;
+  --gb-blue: #076678;
+  --gb-purple: #8f3f71;
+  --gb-aqua: #427b58;
+  --gb-orange: #af3a03;
+  --gb-gray: #928374;
+
+  /* Semantic UI Tokens (Light) */
+  --bg-app: var(--gb-bg0);
+  --bg-sidebar: var(--gb-bg0-soft);
+  --bg-surface: var(--gb-bg0-soft);
+  --bg-surface-elevated: var(--gb-bg1);
+  --bg-surface-hover: rgba(60, 56, 54, 0.06);
+  --bg-surface-active: rgba(60, 56, 54, 0.12);
+
+  --border-subtle: var(--gb-bg2);
+  --border-default: var(--gb-bg3);
+  --border-focus: var(--gb-yellow);
+
+  --text-primary: var(--gb-fg0);
+  --text-secondary: var(--gb-fg2);
+  --text-muted: var(--gb-fg4);
+  --text-inverse: var(--gb-bg0);
+
+  /* Pomodoro Specific Colors */
+  --timer-focus: var(--gb-red);
+  --timer-short-break: var(--gb-green);
+  --timer-long-break: var(--gb-blue);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(40, 40, 40, 0.08);
+  --shadow-md: 0 6px 18px rgba(40, 40, 40, 0.12);
+  --shadow-lg: 0 12px 32px rgba(40, 40, 40, 0.18);
+
+  --color-scheme: light;
+}
+
+/* ==========================================================================
+   BASE RESETS & TYPOGRAPHY
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Tabular / Monospace numbers */
+.font-mono,
+.tabular-nums {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed !important;
+}
+
+/* Custom Gruvbox Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gb-bg3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gb-bg4);
+}
+
+/* ==========================================================================
+   INPUT FIELDS & FORM CONTROLS (Universal Upgrade)
+   ========================================================================== */
+
+input[type="text"],
+input[type="number"],
+input[type="search"],
+input[type="date"],
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-default);
+  border-radius: 12px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(250, 189, 47, 0.22);
+  background-color: var(--bg-surface-elevated);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Styled Select */
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a89984' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 38px;
+}
+
+/* Styled Checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--border-default);
+  border-radius: 5px;
+  background-color: var(--bg-surface);
+  cursor: pointer;
+  display: inline-grid;
+  place-content: center;
+  transition: all 0.15s ease;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--gb-yellow);
+  border-color: var(--gb-yellow);
+}
+
+input[type="checkbox"]:checked::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  background-color: var(--gb-bg0);
+}
+
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   APP SHELL LAYOUT
+   ========================================================================== */
+
+.app-shell {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-app);
+}
+
+.app-shell__content {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+  padding: 20px 32px;
+}
+
+.module-view {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   SHARED MODAL DIALOGS
+   ========================================================================== */
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  padding: 16px;
+}
+
+.dialog {
+  width: min(440px, 100%);
+  padding: 28px;
+  border-radius: 20px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-lg);
+}
+
+.dialog h2 {
+  margin: 0 0 16px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dialog label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.dialog__actions button {
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.dialog__actions button[type="button"] {
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+}
+
+.dialog__actions button[type="button"]:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.dialog__actions button[type="submit"] {
+  background-color: var(--gb-yellow);
+  color: var(--gb-bg0);
+}
+
+.dialog__actions button[type="submit"]:hover:not(:disabled) {
+  filter: brightness(1.1);
+}

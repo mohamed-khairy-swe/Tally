@@ -1,0 +1,144 @@
+.habit-calendar {
+  width: 100%;
+  outline: none;
+}
+
+.habit-calendar__strip-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.habit-calendar__nav-btn {
+  width: 40px;
+  height: 78px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--border-default);
+  border-radius: 12px;
+  background: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.habit-calendar__nav-btn:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-focus);
+  color: var(--gb-yellow);
+}
+
+.habit-calendar__viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.habit-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+}
+
+.habit-calendar__day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: 78px;
+  padding: 8px 4px;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 14px;
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.habit-calendar__day:hover {
+  border-color: var(--border-default);
+  background: var(--bg-surface-hover);
+}
+
+.habit-calendar__weekday {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.habit-calendar__date {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.habit-calendar__label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Today state (when not selected) */
+.habit-calendar__day--today {
+  border-color: var(--gb-orange);
+}
+
+.habit-calendar__day--today .habit-calendar__date {
+  color: var(--gb-orange);
+  font-weight: 800;
+}
+
+/* Selected state */
+.habit-calendar__day--selected {
+  border-color: var(--gb-yellow);
+  background: var(--gb-bg2);
+  color: var(--gb-yellow);
+  box-shadow: var(--shadow-sm);
+}
+
+.habit-calendar__day--selected .habit-calendar__weekday,
+.habit-calendar__day--selected .habit-calendar__label {
+  color: var(--gb-fg2);
+}
+
+/* Combined Selected + Today */
+.habit-calendar__day--selected-today {
+  border: 2px solid var(--gb-yellow);
+  background: var(--gb-bg2);
+  color: var(--gb-yellow);
+}
+
+.habit-calendar__day--selected-today .habit-calendar__date {
+  color: var(--gb-orange);
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .habit-calendar__day {
+    min-height: 70px;
+    padding: 6px 2px;
+  }
+
+  .habit-calendar__date {
+    font-size: 1.15rem;
+  }
+
+  .habit-calendar__label {
+    font-size: 0.62rem;
+  }
+}

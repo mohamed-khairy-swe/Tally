@@ -1,0 +1,171 @@
+.pomodoro-settings {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pomodoro-settings__header h1 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.pomodoro-settings__subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.pomodoro-settings__profiles-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 4px;
+}
+
+.pomodoro-settings__profile-chip {
+  padding: 8px 18px;
+  border-radius: 20px;
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-subtle);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.pomodoro-settings__profile-chip:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.pomodoro-settings__profile-chip--active {
+  background-color: var(--gb-yellow);
+  color: var(--gb-bg0);
+  border-color: var(--gb-yellow);
+  box-shadow: var(--shadow-sm);
+}
+
+.pomodoro-settings__add-profile-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: transparent;
+  color: var(--gb-orange);
+  border: 1.5px dashed var(--gb-orange);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.pomodoro-settings__add-profile-btn:hover {
+  background-color: rgba(254, 128, 25, 0.1);
+  transform: translateY(-1px);
+}
+
+.pomodoro-settings__card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+.pomodoro-settings__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 14px;
+}
+
+.pomodoro-settings__delete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--gb-red);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pomodoro-settings__delete-btn:hover {
+  background-color: rgba(251, 73, 52, 0.12);
+  border-color: var(--gb-red);
+}
+
+.pomodoro-settings__card-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pomodoro-settings__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.pomodoro-settings__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pomodoro-settings__field label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.pomodoro-settings__range-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pomodoro-settings__range-wrap input[type="range"] {
+  flex: 1;
+  accent-color: var(--gb-yellow);
+  cursor: pointer;
+}
+
+.pomodoro-settings__range-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gb-yellow);
+  min-width: 28px;
+  text-align: right;
+}
+
+.pomodoro-settings__checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.pomodoro-settings__checkbox-row label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+}

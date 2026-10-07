@@ -1,0 +1,306 @@
+.counter-card {
+  --counter-accent: var(--gb-orange);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+}
+
+.counter-card:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.counter-card:focus-visible {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px rgba(250, 189, 47, 0.25);
+}
+
+/* Header */
+.counter-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.counter-card__identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.counter-card__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.counter-card__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.counter-card__name {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.counter-card__desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Dropdown Menu */
+.counter-card__menu-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.counter-card__menu-trigger {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.counter-card__menu-trigger:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.counter-card__dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.counter-card__dropdown-item {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 100ms ease;
+}
+
+.counter-card__dropdown-item:hover {
+  background: var(--bg-surface-hover);
+}
+
+.counter-card__dropdown-item--archive {
+  color: var(--gb-red);
+}
+
+.counter-card__dropdown-item--archive:hover {
+  background: rgba(251, 73, 52, 0.15);
+}
+
+/* Main Value Display */
+.counter-card__value-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.counter-card__value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.counter-card__number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.counter-card__unit {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Target Progress */
+.counter-card__target-container {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.counter-card__target-bar-bg {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--gb-bg2);
+  overflow: hidden;
+}
+
+.counter-card__target-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--counter-accent);
+  transition: width 150ms ease;
+}
+
+.counter-card__target-bar-fill--reached {
+  background: var(--gb-green);
+}
+
+.counter-card__target-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.counter-card__target-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.counter-card__target-reached-badge {
+  color: var(--gb-green);
+  font-weight: 700;
+}
+
+/* Primary Counting Controls */
+.counter-card__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.counter-card__btn {
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: 0;
+  transition: transform 100ms ease, background-color 120ms ease, box-shadow 120ms ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-card__btn:not(:disabled):active {
+  transform: scale(0.96);
+}
+
+.counter-card__btn--decrement {
+  background: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-default);
+  min-width: 72px;
+}
+
+.counter-card__btn--decrement:not(:disabled):hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-focus);
+}
+
+.counter-card__btn--decrement:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.counter-card__btn--increment {
+  background: var(--counter-accent);
+  color: var(--gb-bg0);
+  min-width: 100px;
+  box-shadow: var(--shadow-sm);
+}
+
+.counter-card__btn--increment:not(:disabled):hover {
+  filter: brightness(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+/* Secondary Actions */
+.counter-card__secondary-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.counter-card__sub-action {
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 100ms ease;
+}
+
+.counter-card__sub-action:hover:not(:disabled) {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.counter-card__sub-action:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}

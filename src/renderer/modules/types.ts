@@ -1,0 +1,1 @@
+export type ModuleId = "pomodoro" | "habits" | "counter";

@@ -1,0 +1,114 @@
+.habit-date-picker-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  background: rgba(0, 0, 0, 0.45);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(2px);
+}
+
+.habit-date-picker {
+  width: 320px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-subtle);
+  animation: pickerPop 120ms ease-out;
+}
+
+@keyframes pickerPop {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.habit-date-picker__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.habit-date-picker__header strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.habit-date-picker__header button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-default);
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.habit-date-picker__header button:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-focus);
+}
+
+.habit-date-picker__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.habit-date-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.habit-date-picker__day {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 100ms ease;
+}
+
+.habit-date-picker__day:hover {
+  background: var(--bg-surface-hover);
+}
+
+.habit-date-picker__day--outside {
+  opacity: 0.35;
+}
+
+.habit-date-picker__day--today {
+  font-weight: 800;
+  color: var(--gb-orange);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.habit-date-picker__day--selected {
+  background: var(--gb-yellow) !important;
+  color: var(--gb-bg0) !important;
+  font-weight: 800;
+}
