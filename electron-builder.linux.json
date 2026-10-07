@@ -18,7 +18,7 @@
       { "target": "tar.gz", "arch": ["x64"] }
     ],
     "category": "Utility",
-    "icon": "build/icon.svg",
+    "icon": "build/icon.png",
     "maintainer": "Tally Developer",
     "synopsis": "Minimalist Pomodoro, Habits, and Counters desktop app",
     "description": "Gruvbox-themed Pomodoro timer, habit tracker, and tally counters desktop app.",

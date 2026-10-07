@@ -9,6 +9,7 @@ app.commandLine.appendSwitch("disable-setuid-sandbox");
 // Wayland/Mesa window dragging glitches, tearing, and white/black screen crashes.
 if (process.platform === "linux") {
   app.disableHardwareAcceleration();
+  app.commandLine.appendSwitch("disable-gpu");
 }
 
 const __filename = fileURLToPath(import.meta.url);
@@ -67,8 +68,8 @@ function registerStoreHandlers(): void {
 // ---------------------------------------------------------------------------
 function createMainWindow(): void {
   const iconPath = isDevelopment
-    ? path.join(__dirname, "../../src/renderer/assets/Tally.svg")
-    : path.join(__dirname, "../renderer/Tally.svg");
+    ? path.join(__dirname, "../../build/icon.png")
+    : path.join(__dirname, "../renderer/icon.png");
 
   const mainWindow = new BrowserWindow({
     width: 1280,
@@ -76,7 +77,7 @@ function createMainWindow(): void {
     minWidth: 900,
     minHeight: 600,
     backgroundColor: "#282828",
-    show: false,
+    show: true,
     icon: iconPath,
 
     webPreferences: {
@@ -89,10 +90,6 @@ function createMainWindow(): void {
       backgroundThrottling: false,
       autoplayPolicy: "no-user-gesture-required",
     },
-  });
-
-  mainWindow.once("ready-to-show", () => {
-    mainWindow.show();
   });
 
   mainWindow.webContents.on("did-fail-load", (_event, code, desc, url) => {
