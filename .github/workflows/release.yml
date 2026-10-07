@@ -59,7 +59,7 @@ jobs:
       - name: Package with electron-builder
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx electron-builder --config ${{ matrix.builder_config }} --publish never
+        run: pnpm exec electron-builder --config ${{ matrix.builder_config }} --publish never
         shell: bash
 
       - name: Upload build artifacts
