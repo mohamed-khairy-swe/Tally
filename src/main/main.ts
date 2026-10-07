@@ -5,11 +5,10 @@ import { fileURLToPath } from "node:url";
 app.commandLine.appendSwitch("no-sandbox");
 app.commandLine.appendSwitch("disable-setuid-sandbox");
 
-// On Linux, disable GPU hardware acceleration to completely eliminate
-// Wayland/Mesa window dragging glitches, tearing, and white/black screen crashes.
+// On Linux, use X11 / XWayland which reliably renders across all desktop environments
 if (process.platform === "linux") {
-  app.disableHardwareAcceleration();
-  app.commandLine.appendSwitch("disable-gpu");
+  app.commandLine.appendSwitch("ozone-platform", "x11");
+  app.commandLine.appendSwitch("ozone-platform-hint", "x11");
 }
 
 const __filename = fileURLToPath(import.meta.url);
