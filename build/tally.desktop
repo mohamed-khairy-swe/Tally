@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Tally
+Exec=/usr/lib/tally/tally --no-sandbox %U
+Terminal=false
+Type=Application
+Icon=tally
+Comment=Minimalist Pomodoro, Habits, and Counters desktop app
+Categories=Utility;
+StartupWMClass=tally
+MimeType=x-scheme-handler/tally;

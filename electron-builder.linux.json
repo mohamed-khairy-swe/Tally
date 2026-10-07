@@ -23,5 +23,12 @@
     "synopsis": "Minimalist Pomodoro, Habits, and Counters desktop app",
     "description": "Gruvbox-themed Pomodoro timer, habit tracker, and tally counters desktop app.",
     "executableName": "tally"
+  },
+  "deb": {
+    "afterInstall": "build/after-install.sh",
+    "depends": ["libc6 (>= 2.17)", "libgtk-3-0 (>= 3.10.0)", "libnotify4 (>= 0.7.0)", "libnss3 (>= 3.26)", "libxtst6", "xdg-utils", "libatspi2.0-0 (>= 2.26.0)", "libsecret-1-0"]
+  },
+  "rpm": {
+    "afterInstall": "build/after-install.sh"
   }
 }
