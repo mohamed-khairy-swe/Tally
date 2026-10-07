@@ -25,4 +25,5 @@ preloadElectronStorage()
         </ThemeProvider>
       </StrictMode>,
     );
+    console.log("[Tally] React app mounted successfully");
   });

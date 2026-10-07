@@ -5,6 +5,12 @@ import { fileURLToPath } from "node:url";
 app.commandLine.appendSwitch("no-sandbox");
 app.commandLine.appendSwitch("disable-setuid-sandbox");
 
+// On Linux, disable GPU hardware acceleration to completely eliminate
+// Wayland/Mesa window dragging glitches, tearing, and white/black screen crashes.
+if (process.platform === "linux") {
+  app.disableHardwareAcceleration();
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -69,10 +75,12 @@ function createMainWindow(): void {
     height: 800,
     minWidth: 900,
     minHeight: 600,
+    backgroundColor: "#282828",
+    show: false,
     icon: iconPath,
 
     webPreferences: {
-      preload: path.join(__dirname, "../preload/preload.js"),
+      preload: path.join(__dirname, "../preload/preload.cjs"),
 
       nodeIntegration: false,
       contextIsolation: true,
@@ -81,6 +89,20 @@ function createMainWindow(): void {
       backgroundThrottling: false,
       autoplayPolicy: "no-user-gesture-required",
     },
+  });
+
+  mainWindow.once("ready-to-show", () => {
+    mainWindow.show();
+  });
+
+  mainWindow.webContents.on("did-fail-load", (_event, code, desc, url) => {
+    console.error("[main] did-fail-load:", code, desc, url);
+  });
+  mainWindow.webContents.on("console-message", (_event, _level, message, line, sourceId) => {
+    console.log(`[renderer] ${message} (${sourceId}:${line})`);
+  });
+  mainWindow.webContents.on("render-process-gone", (_event, details) => {
+    console.error("[main] render-process-gone:", details);
   });
 
   if (isDevelopment) {
