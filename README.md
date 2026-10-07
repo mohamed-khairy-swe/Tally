@@ -18,6 +18,35 @@
 
 ---
 
+## 📸 Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%" align="center">
+        <b>🍅 Pomodoro Timer</b><br />
+        <img src="docs/screenshots/pomodoro-timer.png" alt="Pomodoro Timer" width="100%" />
+      </td>
+      <td width="50%" align="center">
+        <b>📅 Habit Tracker</b><br />
+        <img src="docs/screenshots/habits-tracker.png" alt="Habit Tracker" width="100%" />
+      </td>
+    </tr>
+    <tr>
+      <td width="50%" align="center">
+        <b>🔥 Habit Heatmap & Streaks</b><br />
+        <img src="docs/screenshots/habit-heatmap.png" alt="Habit Heatmap" width="100%" />
+      </td>
+      <td width="50%" align="center">
+        <b>🔢 Tally Counters</b><br />
+        <img src="docs/screenshots/counters.png" alt="Tally Counters" width="100%" />
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
 ## ✨ Features
 
 - 🍅 **Pomodoro Timer**: Circular animated progress ring, customizable intervals (Focus, Short Break, Long Break), single-cycle long break logic, and dynamic multi-session timeline.
