@@ -37,16 +37,25 @@ Visit the [GitHub Releases](https://github.com/) page to download the latest pre
 Tally is packaged for all major Linux distributions:
 
 #### 1. Universal AppImage (Recommended for any Linux distro)
-Works out-of-the-box on Ubuntu, Fedora, Arch Linux, Debian, openSUSE, Linux Mint, Pop!_OS, Manjaro, and more.
+Works on Ubuntu, Fedora, Arch Linux, Debian, openSUSE, Linux Mint, Pop!_OS, Manjaro, and more.
 ```bash
-# 1. Download Tally-x.x.x.AppImage from Releases
-# 2. Make it executable:
+# 1. Make executable:
 chmod +x Tally-*.AppImage
 
-# 3. Run:
+# 2. Run:
 ./Tally-*.AppImage
+
+# If your distro uses AppArmor restrictions (e.g. Ubuntu 24.04):
+./Tally-*.AppImage --no-sandbox
 ```
-> **Tip**: You can use [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) to integrate Tally into your desktop application menu automatically.
+> **Note on Ubuntu 22.04+ / Debian 12**: If you see `dlopen(): error loading libfuse.so.2`, install the FUSE 2 compatibility library:
+> ```bash
+> sudo apt install libfuse2
+> ```
+> Alternatively, run without installing FUSE:
+> ```bash
+> ./Tally-*.AppImage --appimage-extract-and-run --no-sandbox
+> ```
 
 #### 2. Debian, Ubuntu, Linux Mint, Pop!_OS (`.deb`)
 ```bash
