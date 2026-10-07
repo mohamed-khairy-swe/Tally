@@ -16,7 +16,6 @@
 
 </div>
 
----
 
 ## 📸 Screenshots
 
@@ -45,17 +44,6 @@
   </table>
 </div>
 
----
-
-## ✨ Features
-
-- 🍅 **Pomodoro Timer**: Circular animated progress ring, customizable intervals (Focus, Short Break, Long Break), single-cycle long break logic, and dynamic multi-session timeline.
-- 📅 **Habit Tracker**: Track daily habits, view monthly progress with color heatmaps, monitor streaks, and organize by categories.
-- 🔢 **Tally Counters**: Fast keyboard/click tally counting, custom step increments, goals, reset points, and sorting.
-- 🎨 **Gruvbox Medium Contrast Theme**: Carefully crafted palette with seamless dark and warm light mode toggle.
-- 💾 **Reliable Local Persistence**: Powered by `electron-store` with atomic disk writes — 100% offline and private.
-
----
 
 ## 📦 Download & Installation
 
