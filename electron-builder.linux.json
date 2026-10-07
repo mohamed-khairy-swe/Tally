@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "com.tally.app",
+  "productName": "Tally",
+  "directories": {
+    "output": "release",
+    "buildResources": "build"
+  },
+  "files": [
+    "dist/**/*",
+    "package.json"
+  ],
+  "linux": {
+    "target": [
+      { "target": "AppImage", "arch": ["x64", "arm64"] },
+      { "target": "deb", "arch": ["x64", "arm64"] },
+      { "target": "rpm", "arch": ["x64"] },
+      { "target": "tar.gz", "arch": ["x64"] }
+    ],
+    "category": "Utility",
+    "icon": "build/icon.svg",
+    "maintainer": "Tally Developer",
+    "synopsis": "Minimalist Pomodoro, Habits, and Counters desktop app",
+    "description": "Gruvbox-themed Pomodoro timer, habit tracker, and tally counters desktop app.",
+    "executableName": "tally"
+  }
+}

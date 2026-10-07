@@ -15,10 +15,9 @@
     "test": "vitest run",
     "package": "pnpm build && electron-builder",
     "package:dir": "pnpm build && electron-builder --dir",
-    "package:linux": "pnpm build && electron-builder --linux",
-    "package:win": "pnpm build && electron-builder --win",
-    "package:mac": "pnpm build && electron-builder --mac",
-    "package:all": "pnpm build && electron-builder -mwl"
+    "package:linux": "pnpm build && electron-builder --config electron-builder.linux.json",
+    "package:win": "pnpm build && electron-builder --config electron-builder.win.json",
+    "package:mac": "pnpm build && electron-builder --config electron-builder.mac.json"
   },
   "keywords": [],
   "author": "",
